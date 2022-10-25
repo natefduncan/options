@@ -1,0 +1,15 @@
+title = "Long Strangle"
+
+[[contracts]]
+type = "Call"
+position = "BUY"
+price = 5
+expiration = "2023-01-01"
+strike = 60 
+
+[[contracts]]
+type = "Put"
+position = "BUY"
+price = 5
+expiration = "2023-01-01"
+strike = 40 

@@ -1,0 +1,8 @@
+title = "Short Call"
+
+[[contracts]]
+type = "Call"
+position = "Sell"
+price = 5
+expiration = "2023-01-01"
+strike = 40
