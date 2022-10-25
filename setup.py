@@ -8,6 +8,7 @@ setup(
         'click==8.1.3',
         'datetime==4.7', 
         'tomli >= 1.1.0 ; python_version < "3.11"', 
+        'plotext==5.2.7', 
     ],
     entry_points={
         'console_scripts': [

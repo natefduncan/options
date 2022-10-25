@@ -6,6 +6,7 @@ except ModuleNotFoundError:
     import tomli as tomllib
 
 from options.portfolio import Portfolio
+from options.contracts import Position
 
 def read_toml(path: str):
     with open(path, "rb") as f:
@@ -16,6 +17,7 @@ def parse_toml(toml_dict) -> Portfolio:
     contracts = []
     for contract in toml_dict.get("contracts"):
         contract_type = contract.pop("type")
+        contract["position"] = Position.BUY if contract["position"] == "BUY" else Position.SELL
         if contract_type:
             module = importlib.import_module("options.contracts")
             cls = getattr(module, contract_type)
@@ -33,9 +35,10 @@ def cli():
 
 @click.command()
 @click.argument("path")
-def parity_graph(path):
+@click.option("--underlying-max", default=100)
+def parity_graph(path, underlying_max):
     p = portfolio_from_path(path)
-    click.echo(p)
+    p.parity_graph(underlying_max)
 
 cli.add_command(parity_graph)
 
