@@ -9,6 +9,7 @@ setup(
         'datetime==4.7', 
         'tomli >= 1.1.0 ; python_version < "3.11"', 
         'plotext==5.2.7', 
+        'numpy==1.23.4', 
     ],
     entry_points={
         'console_scripts': [

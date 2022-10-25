@@ -8,9 +8,9 @@ class PriceModel:
 
 class BlackScholes(PriceModel):
 
-    def __init__(self, underlying_price: float, exercise: float, expiration: float, volatility: float, interest: float):
+    def __init__(self, underlying_price: float, strike: float, expiration: float, volatility: float, interest: float):
         self.S = underlying_price
-        self.X = exercise
+        self.X = strike
         self.t = expiration
         self.sigma = volatility
         self.r = interest
@@ -55,9 +55,13 @@ class BlackScholes(PriceModel):
     def put_rho(self):
         return -self.t * self.X * math.exp(-self.r * self.t) * self.normal.cdf(-self.d2)
 
-    def call_greeks(self):
+    def call_info(self):
         return {
-            "price": self.call_price(), 
+            "contract_price": self.call_price(), 
+            "underlying_price": self.S,
+            "expiration": self.t, 
+            "volatility": self.sigma, 
+            "interest": self.r, 
             "delta": self.call_delta(), 
             "gamma": self.call_gamma(), 
             "theta": self.call_theta(), 
@@ -65,9 +69,13 @@ class BlackScholes(PriceModel):
             "rho": self.call_rho(), 
         }
 
-    def put_greeks(self):
+    def put_info(self):
         return {
-            "price": self.put_price(), 
+            "contract_price": self.put_price(), 
+            "underlying_price": self.S,
+            "expiration": self.t, 
+            "volatility": self.sigma, 
+            "interest": self.r, 
             "delta": self.put_delta(), 
             "gamma": self.put_gamma(), 
             "theta": self.put_theta(), 
