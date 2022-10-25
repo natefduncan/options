@@ -1,22 +1,15 @@
-title = "Short Butterfly"
+title = "Long Butterfly"
 
 [[contracts]]
 type = "Call"
-position = "SELL"
+position = "BUY"
 price = 5
 expiration = "2023-01-01"
 strike = 40
 
 [[contracts]]
 type = "Call"
-position = "BUY"
-price = 5
-expiration = "2023-01-01"
-strike = 50 
-
-[[contracts]]
-type = "Call"
-position = "BUY"
+position = "SELL"
 price = 5
 expiration = "2023-01-01"
 strike = 50 
@@ -24,6 +17,13 @@ strike = 50
 [[contracts]]
 type = "Call"
 position = "SELL"
+price = 5
+expiration = "2023-01-01"
+strike = 50 
+
+[[contracts]]
+type = "Call"
+position = "BUY"
 price = 5
 expiration = "2023-01-01"
 strike = 60 
